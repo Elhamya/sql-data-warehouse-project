@@ -14,6 +14,7 @@ Analytics & Reporting: Creating SQL-based reports and exploratory queries to gen
 
 
 **🏗️ Data Architecture**  
+
 Bronze Layer: Full-load raw, unprocessed data as-is from the source systems. This layer serves as a landing zone to ensure data traceability and debugging.  
 Silver Layer: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.  
 Gold Layer: providing business-ready data modeled into a star schema required for reporting and analytics.  
