@@ -13,7 +13,7 @@ Data Modeling: Developing a star schema model with well-structured fact and dime
 Analytics & Reporting: Creating SQL-based reports and exploratory queries to generate actionable insights on sales trends, product performance, and customer behavior.  
 
 
-**🏗️ Data Architecture**
+**🏗️ Data Architecture**  
 Bronze Layer: Full-load raw, unprocessed data as-is from the source systems. This layer serves as a landing zone to ensure data traceability and debugging.  
 Silver Layer: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.  
 Gold Layer: providing business-ready data modeled into a star schema required for reporting and analytics.  
