@@ -20,5 +20,6 @@ The data architecture for this project follows:
 Bronze Layer: Full-load raw, unprocessed data as-is from the source systems. This layer serves as a landing zone to ensure data traceability and debugging.  
 Silver Layer: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.  
 Gold Layer: providing business-ready data modeled into a star schema required for reporting and analytics.  
+
 --
 **Specification: The scope of this project is only focused on the latest dataset, not the historization of data.
