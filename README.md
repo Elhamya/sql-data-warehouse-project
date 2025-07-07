@@ -4,7 +4,7 @@ This project showcases the development of a modern data warehouse using SQL Serv
 
 ---
 📖 Project Overview
-This project involves:
+##This project involves:
 
 Data Architecture: Designing a Modern Data Warehouse Using a 3-layered Medallion Architecture (Bronze → Silver → Gold).
 ETL Pipelines: Extracting, transforming, and loading CSV files from ERP and CRM source systems into the warehouse.
