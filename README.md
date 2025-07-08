@@ -13,7 +13,7 @@ This project involves:
 **Analytics & Reporting:** Creating SQL-based reports and exploratory queries to generate actionable insights on sales trends, product performance, and customer behavior.  
 
 
-**🏗️ Data Architecture**  
+## 🏗️ Data Architecture   
 
 The data architecture for this project follows:  
 
