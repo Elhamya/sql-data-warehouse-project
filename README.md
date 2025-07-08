@@ -1,9 +1,9 @@
-**##Data Warehouse and Analytics Project**
+#Data Warehouse and Analytics Project
 
 This project showcases the development of a modern data warehouse using SQL Server, designed around real-world business needs. It uses a layered Medallion Architecture to process and transform raw data into valuable business insights.
 
 ---
-**###📖 Project Overview**
+##📖 Project Overview
 
 This project involves:
 
@@ -21,5 +21,5 @@ The data architecture for this project follows:
 **Silver Layer:** This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.  
 **Gold Layer:** providing business-ready data modeled into a star schema required for reporting and analytics.  
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 **Specification: The scope of this project is only focused on the latest dataset, not the historization of data.
