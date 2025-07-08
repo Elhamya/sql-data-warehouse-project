@@ -1,9 +1,9 @@
-#Data Warehouse and Analytics Project
+# Data Warehouse and Analytics Project
 
 This project showcases the development of a modern data warehouse using SQL Server, designed around real-world business needs. It uses a layered Medallion Architecture to process and transform raw data into valuable business insights.
 
 ---
-##📖 Project Overview
+## 📖 Project Overview
 
 This project involves:
 
