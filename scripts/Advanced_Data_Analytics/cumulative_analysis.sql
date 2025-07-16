@@ -13,7 +13,6 @@ SQL Functions Used:
 ===============================================================================
 */
 
-
 -- 📊 Monthly Sales with Running Total and Moving Average
 
 -- Step 1: Aggregate sales data at the month level
