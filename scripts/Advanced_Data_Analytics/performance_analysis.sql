@@ -73,3 +73,20 @@ FROM
     sales_with_analytics
 ORDER BY 
     product_name, sales_year;
+
+
+-- --------------------------------------------------------
+-- 💡 Query Design Note:
+-- 
+-- Try to write SQL that is not only efficient but also easy to read and maintain.
+-- Using **layered CTEs** is a helpful way to structure complex logic in stages.
+--
+-- In this example:
+-- - The first CTE (`product_sales_by_year`) handles basic aggregation.
+-- - The second CTE (`sales_with_analytics`) adds business logic using window functions.
+-- - The final SELECT presents clean, labeled output ready for reporting or dashboards.
+--
+-- This structure makes the query easier to follow — like a **data pipeline**, where each layer
+-- performs a specific task. It also improves maintainability: if the business logic changes,
+-- you can often update just one layer without rewriting the entire query.
+-- --------------------------------------------------------
