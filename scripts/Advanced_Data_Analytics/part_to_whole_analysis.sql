@@ -3,8 +3,10 @@
 Part-to-Whole Analysis
 ===============================================================================
 Purpose:
-    - Identifying how individual parts (e.g., categories, regions, or variants) contribute to a total metric like sales or revenue.
-    - Understanding which categories have the highest impact on overall business performance to support better decision-making.
+    - Identifying how individual parts (e.g., categories, regions, or variants) 
+      contribute to a total metric like sales or revenue.
+    - Understanding which categories have the highest impact on overall business
+      performance to support better decision-making.
     - Supporting A/B testing by showing how much each variant contributes to overall results.
     - Formula: [Measure] / Total[Measure] * 100 by dimension.
     
