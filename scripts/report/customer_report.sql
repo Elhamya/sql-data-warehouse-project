@@ -5,7 +5,7 @@ Customer Report
 Purpose:
     - This script consolidates key customer metrics and behavioral insights to support 
       analysis and decision-making for marketing, sales, and retention strategies.
--- ------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------------------------------------------------
 -- It includes:
 --  1. Base sales and customer extraction: Extracts essential transaction and demographic details
 --  2. Aggregation of customer-level KPIs
@@ -13,7 +13,7 @@ Purpose:
 --  4. RFM scoring and customer tagging
 -- 
 -- 🔍 Final Output: One row per customer with segmentation tags, KPIs, and RFM scores.
--- ============================================================================================================
+-- ================================================================================================================================
  
 
 with base_query as(
