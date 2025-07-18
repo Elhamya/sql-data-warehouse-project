@@ -14,7 +14,30 @@ Purpose:
 -- 
 -- 🔍 Final Output: One row per customer with segmentation tags, KPIs, and RFM scores.
 -- ================================================================================================================================
- 
+🧠 Overview: Two Types of Customer Segmentation
+This analysis compares two different segmentation approaches:
+
+✅ 1. Behavioral (Business Rule–Based) Segmentation
+Uses custom rules based on domain knowledge and business strategy.
+Defines customer types such as VIP, Loyal, Inactive, or New based on metrics like recency, lifespan, total_sales, etc.
+Flexible and tailored to specific business goals.
+
+✅ 2. RFM Segmentation (Recency, Frequency, Monetary)
+A systematic, quantitative approach to customer scoring.
+Each customer is scored (typically 1–3) on:
+Recency – how recently they purchased
+Frequency – how often they purchased
+Monetary – how much they spent
+
+Segments such as Champions, Loyal Customers, At Risk, etc., are assigned based on combined scores.
+-- ================================================================================================================================
+
+
+IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
+    DROP VIEW gold.report_customers;
+GO
+
+CREATE VIEW gold.report_customers AS
 
 with base_query as(
 /*--------------------------------------------------------------------------------------------
@@ -87,11 +110,11 @@ SELECT
          ELSE 'Senior'
     END age_group,
     CASE 
-        WHEN recency <= 3 AND total_sales >= 5000 THEN 'VIP'                       -- High spenders with recent activity
-        WHEN lifespan >= 12 AND total_sales > 5000 THEN 'High-Value Regular'
-        WHEN lifespan >= 6 AND total_orders >= 10 THEN 'Loyal'                     -- Long-term customers with frequent orders
-        WHEN recency >= 12 THEN 'Inactive'                                         -- Haven’t ordered recently
-        ELSE 'New'                                                                 -- New or low-activity customers
+        WHEN recency <= 3 AND total_sales >= 5000 THEN 'VIP'                     -- High-spending customers who bought recently. These are top-tier customers.
+        WHEN lifespan >= 12 AND total_sales > 5000 THEN 'High-Value Regular'     -- Long-term, high-spending customers, but not necessarily recent buyers.
+        WHEN lifespan >= 6 AND total_orders >= 10 THEN 'Loyal'                   -- Long-term customers with frequent orders who may not spend a lot per order but buy often.
+        WHEN recency >= 12 THEN 'Inactive'                                       -- Haven’t made a purchase in over a year — need re-engagement.
+        ELSE 'New'                                                               -- New, low-spending, or low-activity customers — still learning their behavior.
     END AS customer_segment
     ,
     last_order_date,
@@ -150,12 +173,12 @@ FROM customer_aggregation
 
 select *,
      CASE 
-    	 WHEN recency_score = 3 AND frequency_score = 3 AND monetary_score = 3 THEN 'Champions'
-    	 WHEN recency_score >= 2 AND frequency_score >= 2 AND monetary_score >= 2 THEN 'Loyal Customers'
-    	 WHEN recency_score = 1 AND monetary_score >= 2 THEN 'At Risk'
-    	 WHEN recency_score = 1 AND frequency_score = 1 THEN 'Lost'
-    	 WHEN total_orders = 1 AND recency_score = 3 THEN 'New'
-         ELSE 'Others'
+    	 WHEN recency_score = 3 AND frequency_score = 3 AND monetary_score = 3 THEN 'Champions'                -- best customers: spend the most, buy most often, and purchased recently
+    	 WHEN recency_score >= 2 AND frequency_score >= 2 AND monetary_score >= 2 THEN 'Loyal Customers'       -- Very engaged, valuable customers who come back often and spend well
+    	 WHEN recency_score = 1 AND monetary_score >= 2 THEN 'At Risk'                                         -- haven’t purchased recently), but still spend> start to drift — you should re-engage them
+    	 WHEN recency_score = 1 AND frequency_score = 1 THEN 'Lost'                                            -- Haven’t purchased in a long time and were never frequent buyers — maybe churned
+    	 WHEN total_orders = 1 AND recency_score = 3 THEN 'New'                                                -- Just joined — they need onboarding and nurturing
+         ELSE 'Others'                                                                                         -- Customers who don’t fit clearly into the above categories — a mixed bag
      END AS rfm_segment
 from customer_segmentation
 
