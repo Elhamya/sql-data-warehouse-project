@@ -63,15 +63,16 @@ select
 		min(order_date) as first_order_date,
 		max(order_date) as last_order_date, 
 		DATEDIFF(month, max(order_date), GETDATE()) AS recency,        -- Months since last order
-    CASE WHEN COUNT(DISTINCT order_number) > 1 THEN 'Yes' 
-			   ELSE 'No' 
-	  END AS has_returned, 
+                CASE WHEN COUNT(DISTINCT order_number) > 1 THEN 'Yes' 
+		     ELSE 'No' 
+	        END AS has_returned, 
 		DATEDIFF(Month, MIN(order_date), MAX(order_date)) as lifespan  -- months between first and last order
 from base_query
 group by customer_key,
 		 customer_number,
 		 customer_name,
 		 age),
+
 
 customer_segmentation as(
 
@@ -145,15 +146,17 @@ SELECT
 FROM customer_aggregation
 )
 
+
+
 select *,
-      CASE 
-    			WHEN recency_score = 3 AND frequency_score = 3 AND monetary_score = 3 THEN 'Champions'
-    			WHEN recency_score >= 2 AND frequency_score >= 2 AND monetary_score >= 2 THEN 'Loyal Customers'
-    			WHEN recency_score = 1 AND monetary_score >= 2 THEN 'At Risk'
-    			WHEN recency_score = 1 AND frequency_score = 1 THEN 'Lost'
-    			WHEN total_orders = 1 AND recency_score = 3 THEN 'New'
-          ELSE 'Others'
-	   END AS rfm_segment
+     CASE 
+    	 WHEN recency_score = 3 AND frequency_score = 3 AND monetary_score = 3 THEN 'Champions'
+    	 WHEN recency_score >= 2 AND frequency_score >= 2 AND monetary_score >= 2 THEN 'Loyal Customers'
+    	 WHEN recency_score = 1 AND monetary_score >= 2 THEN 'At Risk'
+    	 WHEN recency_score = 1 AND frequency_score = 1 THEN 'Lost'
+    	 WHEN total_orders = 1 AND recency_score = 3 THEN 'New'
+         ELSE 'Others'
+     END AS rfm_segment
 from customer_segmentation
 
 
