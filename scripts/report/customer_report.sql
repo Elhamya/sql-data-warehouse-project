@@ -31,7 +31,7 @@ Monetary – how much they spent
 
 Segments such as Champions, Loyal Customers, At Risk, etc., are assigned based on combined scores.
 -- ================================================================================================================================
-
+*/
 
 IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
     DROP VIEW gold.report_customers;
