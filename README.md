@@ -22,5 +22,5 @@ The data architecture for this project follows:
 **Gold Layer:** providing business-ready data modelled into a star schema required for reporting and analytics.  
 
 ---
-**Specification: The scope of this project is only focused on the latest dataset, not the historization of data.
+**Specification: The scope of this project is only focused on the latest dataset, not the historization of data.  
 **You can find the process summary in the docs folder.
