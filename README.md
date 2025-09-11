@@ -23,3 +23,4 @@ The data architecture for this project follows:
 
 ---
 **Specification: The scope of this project is only focused on the latest dataset, not the historization of data.
+**You can find the process summary in the docs folder.
