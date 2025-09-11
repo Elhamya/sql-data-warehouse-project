@@ -30,3 +30,10 @@ FROM INFORMATION_SCHEMA.TABLES;
 SELECT column_name, data_type
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE table_name = 'sales';
+
+This gives a read-only overview of the schema.
+From here, you can start thinking about what belongs to Dimensions and what belongs to Measures:
+•	Measures → numeric values that make sense to aggregate (e.g., revenue, quantity).
+•	Dimensions → descriptive attributes that group or segment measures (e.g., product, region, customer).
+•	Sometimes, numeric values can be derived from dimensions (e.g., age from birthdate).
+
