@@ -118,9 +118,9 @@ This reveals top-performing or underperforming categories, products, or customer
 🔑 Summary  
   
 EDA with SQL helps answer:  
-What’s in my data? (Database exploration)  
-How can it be grouped? (Dimensions exploration) 
-What’s the time range? (Date exploration)  
+What’s in my data? (Database exploration)    
+How can it be grouped? (Dimensions exploration)     
+What’s the time range? (Date exploration)    
 What are the key metrics? (Measure & magnitude analysis)  
 Who/what performs best? (Ranking analysis)  
 By following these steps, you build a clear understanding of the dataset before deeper analysis or modelling.
